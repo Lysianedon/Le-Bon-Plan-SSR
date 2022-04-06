@@ -19,13 +19,33 @@ app.use(express.static(path.join(__dirname, "/public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-
-// -------------------------- Routes  --------------------------------
+// Redirecting routes -----------
 app.use('/users', Users);
 app.use('/products', Products);
 
 
 
+// ------------------------------- Routes ------------------------------------
+// -------------------------- localhost:8000/ --------------------------------
+
+app.get('/', (req,res)=> {
+
+    res.render('home')
+})
+
+app.get('/login', (req,res)=> {
+    res.render('login')
+})
+
+app.post('/login', (req,res)=> {
+    let userInfos = req.body;
+    console.log(userInfos);
+
+})
+
+// app.post('/signup', (req,res)=> {
+//     res.render('signup')
+// })
 
 
 
